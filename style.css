@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background, .board-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.background {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .5s;
+  background-image: url('./assets/confetti.gif');
+  background-size: cover;
+}
+
+.background.visible {
+  opacity: 1;
+}
+
+.board-cover {
+  z-index: 200;
+}
+
+.board-cover.lifted {
+  display: none;
+}
+
+.board {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  perspective: 500;
+  margin: 0 auto;
+  max-width: 1100px;
+  transition: all .3s;
+}
+
+.card {
+  height: 297px;
+  width: 197px;
+  border: 2px solid gray;
+  background-image: url('./assets/card_back.png');
+  border-radius: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px;
+  box-shadow: 2px 3px 8px rgba(0,0,0,.5);
+  transition: width .5s, height .5s, transform .3s;
+  cursor: pointer;
+}
+
+.reveal {
+  background-color: white;
+  background-image: url('./assets/dragon.jpg');
+  background-position-y: center;
+  cursor: default;
+}
+
+.winner {
+  background-image: url('./assets/polka_dots.jpg');
+  background-size: cover;
+  transform: scale(1.1, 1.1);
+}
+
+.player {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  bottom: -35px;
+  pointer-events: none;
+  transition: all .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(.8, .8);
+}
+
+.player__content {
+  font-size: 8rem;
+  color: orange;
+  z-index: 100;
+  transform: translateY(40px);
+  text-shadow: 2px 2px 4px rgba(0,0,0,.5);
+  font-family: 'Farro', sans-serif;
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+
+.player[data-playerId='1'] {
+  left: 0;
+  transform-origin: 0% 100%;
+}
+
+.player[data-playerId='1']::before {
+  background-image: url('./assets/bird_brown.png');
+}
+
+.player[data-playerId='2'] {
+  right: 0;
+  transform-origin: 100% 100%;
+}
+
+.player[data-playerId='2']::before {
+  background-image: url('./assets/bird_purple.png');
+  transform: scaleX(-1);
+}
+
+.player.active {
+  transform: scale(1.2, 1.2);
+}
+
+.start-btn {
+  display: block;
+  position: absolute;
+  z-index: 300;
+  bottom: 30px;
+  left: 50%;
+  width: 150px;
+  padding: 5px 10px;
+  margin-left: -75px;
+  font-size: 3rem; 
+  color: white;
+  background-color: orange;
+  cursor: pointer;
+  border: 2px solid red;
+  font-family: 'Farro', sans-serif;
+  box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+  text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+  transition: all .3s;
+}
+
+@media only screen and (max-width: 1105px) {
+  .board {
+    max-width: 900px;
+  }
+  .card {
+    height: 197px;
+    width: 131px;
+  }
+}
+
+@media only screen and (hover: hover) {
+  .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  .card.reveal:hover {
+    transform: scale(1, 1);
+  }
+  .start-btn:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: 3px 3px 4px rgba(0,0,0,.5);
+  }
+}
