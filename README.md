@@ -4,7 +4,7 @@ A game designed by my four-year-old.
 
 ## How To Play
 
-[Click Here]() to visit the live game now.
+[Click Here](https://shane-card-game.netlify.com/) to visit the live game now.
 
 This is a two-player game. Your quest is to find the winning card, the one with the rainbow polka dots. **Beware:** ferocious drgagons lurk under the remaining nine cards! 
 
