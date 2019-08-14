@@ -32,6 +32,7 @@ function endGame() {
   gameInProgress = false;
   cover.classList.remove('lifted');
   background.classList.add('visible');
+  startButton.disabled = false;
   const activeIndex = parseInt(activePlayer, 10) - 1;
   score[activeIndex]++;
   displayScores();
@@ -72,6 +73,7 @@ function startGame() {
     card.classList.remove('reveal', 'winner');
   });
   cover.classList.add('lifted');
+  startButton.disabled = true;
   background.classList.remove('visible');
   activePlayer = Math.round(Math.random()) ? '1' : '2';
   displayActivePlayer(activePlayer);
