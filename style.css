@@ -78,7 +78,7 @@ body {
   width: 300px;
   bottom: -35px;
   pointer-events: none;
-  transition: all .3s;
+  transition: all .3s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,11 +126,11 @@ body {
 }
 
 .player[data-playerId='1'].active {
-  left: 15%;
+  left: 8%;
 }
 
 .player[data-playerId='2'].active {
-  right: 15%;
+  right: 8%;
 }
 
 .start-btn {

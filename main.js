@@ -81,8 +81,14 @@ function startGame() {
   gameInProgress = true;
 }
 
+function handleKeyPress(e) {
+  if (e.key === 'Enter') startGame();
+}
+
 cards.forEach(card => {
   card.addEventListener('click', revealCard);
 });
 
 startButton.addEventListener('click', startGame);
+
+window.addEventListener('keypress', handleKeyPress);
