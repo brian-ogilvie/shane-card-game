@@ -73,7 +73,7 @@ body {
 }
 
 .player {
-  position: absolute;
+  position: fixed;
   height: 300px;
   width: 300px;
   bottom: -35px;
@@ -125,9 +125,17 @@ body {
   transform: scale(1.2, 1.2);
 }
 
+.player[data-playerId='1'].active {
+  left: 15%;
+}
+
+.player[data-playerId='2'].active {
+  right: 15%;
+}
+
 .start-btn {
   display: block;
-  position: absolute;
+  position: fixed;
   z-index: 300;
   bottom: 30px;
   left: 50%;
